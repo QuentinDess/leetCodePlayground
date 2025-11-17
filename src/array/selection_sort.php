@@ -4,18 +4,18 @@ $array = range(1,100);
 
 /** O(n^2)  */
  function selectionSort($array) {
-    for($i = 0; $i < sizeof($array) -1 ; $i++) {
+     $n = count($array);
+    for($i = 0; $i < $n -1 ; $i++) {
          $minIndex = $i;
-        for($j = $i + 1; $j < sizeof($array); $j++) {
+        for($j = $i + 1; $j < $n; $j++) {
             if($array[$j] < $array[$minIndex]) {
                 $minIndex = $j;
             }
         }
 
         if($i !== $minIndex) {
-            $temp = $array[$i];
-            $array[$i] = $array[$minIndex];
-            $array[$minIndex] = $temp;
+            /** php inline swap */
+            [$array[$i], $array[$minIndex]] = [$array[$minIndex], $array[$i]];
         }
     }
 return $array;
