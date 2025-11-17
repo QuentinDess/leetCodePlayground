@@ -6,10 +6,15 @@ $array = range(1,100);
  function bubbleSort($array) {
     $n = count($array);
     while($n > 0) {
+        $swap = false;
         for($i = 1; $i < $n; $i++) {
             if($array[$i] < $array[$i - 1]) {
+                $swap = true;
                 [$array[$i],$array[$i-1]] =  [$array[$i - 1 ],$array[$i]] ;
             }
+        }
+        if(!$swap) {
+            return $array;
         }
         $n --;
     }
