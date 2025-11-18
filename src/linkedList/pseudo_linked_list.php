@@ -115,6 +115,31 @@ class LinkedList
         $this->size--;
 
     }
+
+    public function getNodeAt(int $position): mixed
+    {
+        if($position > $this->size -1 || $position < 0) {
+           return null;
+        }
+
+        $current = $this->head;
+        for ($i = 0; $i < $position; $i++){
+            $current = $current->next;
+        }
+        return $current->value;
+    }
+
+    public function contains(mixed $value): bool
+    {
+        $current = $this->head;
+        while ($current !== null) {
+            if($current->value === $value) {
+                return true;
+            }
+            $current = $current->next;
+        }
+        return false;
+    }
 }
 
 $linkedList = new LinkedList();
@@ -130,9 +155,12 @@ $linkedList->addAt('c', 3);
 $linkedList->addAt('x', 5);
 $linkedList->removeFirst();
 $linkedList->removeLast();
-$linkedList->removeAt(1);
-$linkedList->removeAt(2);
-$linkedList->removeAt(1);
-$linkedList->removeAt(0);
-
 $linkedList->print();
+echo PHP_EOL;
+
+echo $linkedList->getNodeAt(3);
+echo PHP_EOL;
+
+echo $linkedList->contains('z') ? 'true' : 'false';
+echo PHP_EOL;
+echo $linkedList->contains('a') ? 'true' : 'false';
