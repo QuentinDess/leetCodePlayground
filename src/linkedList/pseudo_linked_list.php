@@ -1,4 +1,5 @@
 <?php
+namespace App\LinkedList;
 class Node {
      public function __construct(
         public mixed     $value,
@@ -141,7 +142,7 @@ class LinkedList
         return false;
     }
 }
-
+/*
 $linkedList = new LinkedList();
 $linkedList->addFirst("a");
 $linkedList->print();
@@ -163,4 +164,4 @@ echo PHP_EOL;
 
 echo $linkedList->contains('z') ? 'true' : 'false';
 echo PHP_EOL;
-echo $linkedList->contains('a') ? 'true' : 'false';
+echo $linkedList->contains('a') ? 'true' : 'false';*/
